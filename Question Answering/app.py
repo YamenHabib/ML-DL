@@ -81,33 +81,6 @@ def get_wiki_paragraph(query: str) -> str:
 # context = ""
 if __name__ == "__main__":
     model, tokernizer= load_qa_model()
-    # topic = st.text_input("Enter a topic: ")
-    # topic_button = st.button("Get Topic")
-
-    # if topic_button:
-    #     if topic != '':
-    #         result = wikipedia.search(topic)
-    #         add_selectbox = st.selectbox("What article do you like:", result)
-    #         get_summery_button = st.button("Get summery")
-
-    #         if get_summery_button:
-    #             page = wikipedia.page(add_selectbox)
-    #             context = page.summary
-            
-    #             context_para = st.write(context)
-
-
-    #             st.title("Ask questions about Wikipedia summery")
-    #             question = st.text_input("Questions from this article?")
-    #             button = st.button("Get me Answers")
-    #             with st.spinner("Discovering Answers.."):
-    #                 if button:
-    #                     print("hi") 
-    #                     if question!= '':
-    #                         data = { 'context': context, 'question': question }
-    #                         answer = generate_answer(data)
-    #                         wait_flag= True
-    #                         st.write(answer)
     
     topic = st.text_input("Enter a topic: ", "")
     paragraph_slot = st.empty()
@@ -127,5 +100,4 @@ if __name__ == "__main__":
                 answer = generate_answer(data)
                 st.success(answer)
             except Exception as e:
-                print(e)
                 st.warning("You must provide a valid wikipedia paragraph")
